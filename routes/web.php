@@ -14,33 +14,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
 
-Route::get('/{property_type}/{listing_type}', function () {
-    return view('welcome');
+// Single listing
+Route::get('/listing/{slug}/{id}', function () {
+    return view('pages/single-listing');
+});
+
+// show all listings
+Route::get('/{property_type}/{listing_type}/{city}', function () {
+    return view('pages/listings');
 });
 
 Route::get('/show-all-listings', function() {
     return view('show-all-listings');
 });
 
-Route::get('/listing/{id}', function () {
-    return view('single-property');
-});
-
 Route::get('/login', function () {
-    return view('welcome');
+    return view('pages/login');
 });
 
 Route::get('/register', function () {
-    return view('welcome');
+    return view('pages/register');
 });
 
 Route::get('/account/saved', function () {
-    return view('welcome');
+    return view('pages/saved-listings');
 });
 
-Route::get('/account/showing-status', function () {
-    return view('welcome');
+Route::get('/account/show-status', function () {
+    return view('pages/show-status');
 });
